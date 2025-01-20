@@ -11,10 +11,28 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.echojournal.ui.theme.EchoJournalTheme
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.lifecycle.lifecycleScope
+import com.example.echojournal.presentation.ui.theme.EchoJournalTheme
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+
+
+        var splashState = true
+        installSplashScreen().apply {
+            setKeepOnScreenCondition {
+                lifecycleScope.launch {
+                    delay(3000)
+                    splashState = false
+                }
+                splashState
+            }
+        }
+
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {

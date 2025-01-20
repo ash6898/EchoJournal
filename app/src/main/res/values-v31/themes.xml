@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.EchoJournal" parent="android:Theme.Material.Light.NoActionBar" />
     <style name="Theme.App.Starting" parent="Theme.EchoJournal">
         <item name="windowSplashScreenBackground">#D9E2FF</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/mood</item>
         <item name="postSplashScreenTheme">@android:style/Theme.Material.NoActionBar</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/mood</item>
     </style>
 </resources>
